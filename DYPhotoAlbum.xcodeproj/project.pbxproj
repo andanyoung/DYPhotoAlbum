@@ -9,13 +9,16 @@
 /* Begin PBXBuildFile section */
 		8525F0641BFB371F00EE8D31 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8525F0631BFB371F00EE8D31 /* main.m */; };
 		8525F0671BFB371F00EE8D31 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8525F0661BFB371F00EE8D31 /* AppDelegate.m */; };
-		8525F06A1BFB371F00EE8D31 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8525F0691BFB371F00EE8D31 /* ViewController.m */; };
+		8525F06A1BFB371F00EE8D31 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8525F0691BFB371F00EE8D31 /* DetailViewController.m */; };
 		8525F06D1BFB371F00EE8D31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8525F06B1BFB371F00EE8D31 /* Main.storyboard */; };
 		8525F06F1BFB371F00EE8D31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8525F06E1BFB371F00EE8D31 /* Assets.xcassets */; };
 		8525F0721BFB371F00EE8D31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8525F0701BFB371F00EE8D31 /* LaunchScreen.storyboard */; };
 		8525F07D1BFB371F00EE8D31 /* DYPhotoAlbumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8525F07C1BFB371F00EE8D31 /* DYPhotoAlbumTests.m */; };
 		8525F0881BFB371F00EE8D31 /* DYPhotoAlbumUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8525F0871BFB371F00EE8D31 /* DYPhotoAlbumUITests.m */; };
 		8525F0981BFB375C00EE8D31 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8525F0971BFB375C00EE8D31 /* iCarousel.m */; };
+		85403DB51BFC121F0015169C /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85403DB41BFC121F0015169C /* AssetsLibrary.framework */; };
+		85403DB81BFC25290015169C /* AlbumsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85403DB71BFC25290015169C /* AlbumsViewController.m */; };
+		85403DBC1BFC2A9D0015169C /* DYGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 85403DBB1BFC2A9D0015169C /* DYGroup.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +43,8 @@
 		8525F0631BFB371F00EE8D31 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8525F0651BFB371F00EE8D31 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8525F0661BFB371F00EE8D31 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8525F0681BFB371F00EE8D31 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8525F0691BFB371F00EE8D31 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		8525F0681BFB371F00EE8D31 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		8525F0691BFB371F00EE8D31 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		8525F06C1BFB371F00EE8D31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8525F06E1BFB371F00EE8D31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8525F0711BFB371F00EE8D31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,6 +57,11 @@
 		8525F0891BFB371F00EE8D31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8525F0961BFB375C00EE8D31 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		8525F0971BFB375C00EE8D31 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		85403DB41BFC121F0015169C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		85403DB61BFC25290015169C /* AlbumsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumsViewController.h; sourceTree = "<group>"; };
+		85403DB71BFC25290015169C /* AlbumsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumsViewController.m; sourceTree = "<group>"; };
+		85403DBA1BFC2A9D0015169C /* DYGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYGroup.h; sourceTree = "<group>"; };
+		85403DBB1BFC2A9D0015169C /* DYGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYGroup.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85403DB51BFC121F0015169C /* AssetsLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +93,7 @@
 		8525F0561BFB371F00EE8D31 = {
 			isa = PBXGroup;
 			children = (
+				85403DB41BFC121F0015169C /* AssetsLibrary.framework */,
 				8525F0611BFB371F00EE8D31 /* DYPhotoAlbum */,
 				8525F07B1BFB371F00EE8D31 /* DYPhotoAlbumTests */,
 				8525F0861BFB371F00EE8D31 /* DYPhotoAlbumUITests */,
@@ -104,11 +114,14 @@
 		8525F0611BFB371F00EE8D31 /* DYPhotoAlbum */ = {
 			isa = PBXGroup;
 			children = (
+				85403DB91BFC2A680015169C /* Model */,
 				8525F0951BFB375C00EE8D31 /* iCarousel */,
 				8525F0651BFB371F00EE8D31 /* AppDelegate.h */,
 				8525F0661BFB371F00EE8D31 /* AppDelegate.m */,
-				8525F0681BFB371F00EE8D31 /* ViewController.h */,
-				8525F0691BFB371F00EE8D31 /* ViewController.m */,
+				8525F0681BFB371F00EE8D31 /* DetailViewController.h */,
+				8525F0691BFB371F00EE8D31 /* DetailViewController.m */,
+				85403DB61BFC25290015169C /* AlbumsViewController.h */,
+				85403DB71BFC25290015169C /* AlbumsViewController.m */,
 				8525F06B1BFB371F00EE8D31 /* Main.storyboard */,
 				8525F06E1BFB371F00EE8D31 /* Assets.xcassets */,
 				8525F0701BFB371F00EE8D31 /* LaunchScreen.storyboard */,
@@ -151,6 +164,15 @@
 				8525F0971BFB375C00EE8D31 /* iCarousel.m */,
 			);
 			path = iCarousel;
+			sourceTree = "<group>";
+		};
+		85403DB91BFC2A680015169C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				85403DBA1BFC2A9D0015169C /* DYGroup.h */,
+				85403DBB1BFC2A9D0015169C /* DYGroup.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,10 +308,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8525F06A1BFB371F00EE8D31 /* ViewController.m in Sources */,
+				85403DBC1BFC2A9D0015169C /* DYGroup.m in Sources */,
+				8525F06A1BFB371F00EE8D31 /* DetailViewController.m in Sources */,
 				8525F0981BFB375C00EE8D31 /* iCarousel.m in Sources */,
 				8525F0671BFB371F00EE8D31 /* AppDelegate.m in Sources */,
 				8525F0641BFB371F00EE8D31 /* main.m in Sources */,
+				85403DB81BFC25290015169C /* AlbumsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +547,7 @@
 				8525F08E1BFB371F00EE8D31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8525F08F1BFB371F00EE8D31 /* Build configuration list for PBXNativeTarget "DYPhotoAlbumTests" */ = {
 			isa = XCConfigurationList;
@@ -531,6 +556,7 @@
 				8525F0911BFB371F00EE8D31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8525F0921BFB371F00EE8D31 /* Build configuration list for PBXNativeTarget "DYPhotoAlbumUITests" */ = {
 			isa = XCConfigurationList;
@@ -539,6 +565,7 @@
 				8525F0941BFB371F00EE8D31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
