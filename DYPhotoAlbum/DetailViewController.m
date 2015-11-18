@@ -29,7 +29,7 @@
         _ic.delegate = self;
         _ic.dataSource = self;
         //修改3D显示模式, type是枚举类型，数值0 ~ 11
-        _ic.type = 1;
+        _ic.type = 5;
         //自动展示, 0表示不滚动 越大滚动的越快
         _ic.autoscroll = 0.1;
         //改变为竖向展示
@@ -44,46 +44,46 @@
 }
 
 
-- (NSMutableArray *)imageURLs {
-    if(_imageURLs == nil) {
-        _imageURLs = [[NSMutableArray alloc] init];
-        
-    
-        [self.assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupAlbum usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
-           NSLog(@"currentThread:%@",[NSThread currentThread]);
-            NSString *groupName = [group valueForProperty:ALAssetsGroupPropertyName];
-            NSInteger groupNumber = [group numberOfAssets];
-            NSLog(@"groupNumber:%ld",groupNumber);
-            if ([groupName isEqualToString:_albumType]) {
-                 NSLog(@"group:%@",group);
-                
-                //When the enumeration is done, enumerationBlock is invoked with group set to nil
-                [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
-                    if (result) {
-                         NSLog(@"result:%@",result);
-                       NSString *resultType = [result valueForProperty:ALAssetPropertyType];
-                        if ([resultType isEqualToString:ALAssetTypePhoto]) {
-                            //获取资源图片的详细资源信息
-                            ALAssetRepresentation* representation = [result defaultRepresentation];
-                            
-                            //[_imageURLs addObject:result.thumbnail];
-                            [_imageURLs addObject:[representation fullResolutionImage] ];
-                        }
-                    }
-                }];
-                
-            }else{
-                //坑爹的，这是主线程异步要刷新。。。
-                [self.ic reloadData];
-            }
-            
-            NSLog(@"%@",group);
-        } failureBlock:^(NSError *error) {
-            NSLog(@"读取相册失败");
-        }];
-    }
-    return _imageURLs;
-}
+//- (NSMutableArray *)imageURLs {
+//    if(_imageURLs == nil) {
+//        _imageURLs = [[NSMutableArray alloc] init];
+//        
+//    
+//        [self.assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+//           NSLog(@"currentThread:%@",[NSThread currentThread]);
+//            NSString *groupName = [group valueForProperty:ALAssetsGroupPropertyName];
+//            NSInteger groupNumber = [group numberOfAssets];
+//            NSLog(@"groupNumber:%ld",groupNumber);
+//            if ([groupName isEqualToString:_albumType]) {
+//                 NSLog(@"group:%@",group);
+//                
+//                //When the enumeration is done, enumerationBlock is invoked with group set to nil
+//                [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
+//                    if (result) {
+//                         NSLog(@"result:%@",result);
+//                       NSString *resultType = [result valueForProperty:ALAssetPropertyType];
+//                        if ([resultType isEqualToString:ALAssetTypePhoto]) {
+//                            //获取资源图片的详细资源信息
+//                            ALAssetRepresentation* representation = [result defaultRepresentation];
+//                            
+//                            //[_imageURLs addObject:result.thumbnail];
+//                            [_imageURLs addObject:[representation fullResolutionImage] ];
+//                        }
+//                    }
+//                }];
+//                
+//            }else{
+//                //坑爹的，这是主线程异步要刷新。。。
+//                [self.ic reloadData];
+//            }
+//            
+//            NSLog(@"%@",group);
+//        } failureBlock:^(NSError *error) {
+//            NSLog(@"读取相册失败");
+//        }];
+//    }
+//    return _imageURLs;
+//}
 - (ALAssetsLibrary *)assetsLibrary{
     if (!_assetsLibrary) {
         _assetsLibrary = [ALAssetsLibrary new];
@@ -107,7 +107,7 @@
 #pragma mark - iCarousel
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel{
    
-    return self.imageURLs.count;
+    return self.imageCount;
 }
 
 //添加循环滚动
@@ -141,10 +141,42 @@
         imageView.contentMode = 1;
         //imageView.clipsToBounds = YES;
     }
-     UIImageView *imageView = (UIImageView *)[view viewWithTag:100];
-    if (self.imageURLs.count>1) {
-        imageView.image = [UIImage imageWithCGImage: (__bridge CGImageRef _Nonnull)(self.imageURLs[index])];
-    }
+    UIImageView *imageView = (UIImageView *)[view viewWithTag:100];
+   
+    
+    
+    [self.assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+        NSLog(@"currentThread:%@",[NSThread currentThread]);
+        NSString *groupName = [group valueForProperty:ALAssetsGroupPropertyName];
+        NSInteger groupNumber = [group numberOfAssets];
+        NSLog(@"groupNumber:%ld",groupNumber);
+        if ([groupName isEqualToString:_albumType]) {
+            NSLog(@"group:%@",group);
+            
+            //When the enumeration is done, enumerationBlock is invoked with group set to nil
+            [group enumerateAssetsAtIndexes:[NSIndexSet indexSetWithIndex:index] options:1 usingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
+                if (result) {
+                    NSLog(@"result:%@",result);
+                    NSString *resultType = [result valueForProperty:ALAssetPropertyType];
+                    if ([resultType isEqualToString:ALAssetTypePhoto]) {
+                        //获取资源图片的详细资源信息
+                        ALAssetRepresentation* representation = [result defaultRepresentation];
+                        
+                        //[_imageURLs addObject:result.thumbnail];
+                        //[_imageURLs addObject:[representation fullResolutionImage] ];
+                        imageView.image = [UIImage imageWithCGImage:[representation fullResolutionImage]];
+                    }
+                }
+
+            }];
+            
+        }
+        
+        NSLog(@"%@",group);
+    } failureBlock:nil
+    ];
+    
+    
     
 
     return view;

@@ -44,8 +44,12 @@
                         NSString *resultType = [result valueForProperty:ALAssetPropertyType];
                         if ([resultType isEqualToString:ALAssetTypePhoto]) {
                             //获取资源图片的详细资源信息
-                            albumGroup.iconView = [UIImage imageWithCGImage: result.thumbnail];
+                            ALAssetRepresentation* representation = [result defaultRepresentation];
                             
+                           
+                            //[_imageURLs addObject:[representation fullResolutionImage] ];
+                            albumGroup.iconView = [UIImage imageWithCGImage: result.thumbnail];
+                            albumGroup.iconView = [UIImage imageWithCGImage: [representation fullResolutionImage]];
                             *stop = YES;
                         }
                     }
@@ -142,6 +146,7 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     DetailViewController *vc =  [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"detail"];
     vc.albumType = self.albums[indexPath.row].groupName;
+    vc.imageCount = self.albums[indexPath.row].count;
     [self.navigationController pushViewController:vc animated:YES];
 }
 #pragma mark <UICollectionViewDelegate>

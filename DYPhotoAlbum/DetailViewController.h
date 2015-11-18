@@ -10,6 +10,6 @@
 
 @interface DetailViewController : UIViewController
 @property (nonatomic, copy) NSString *albumType;
-
+@property (nonatomic) NSInteger imageCount;
 @end
 
